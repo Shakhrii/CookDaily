@@ -63,6 +63,7 @@ module.exports = {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@store": path.resolve(__dirname, "src/store"),
     },
   },
 
