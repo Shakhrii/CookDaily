@@ -8,7 +8,7 @@ export interface AuthState {
   user: User | null,
 }
 
-const emptyState =  {
+const emptyState: AuthState =  {
       accessToken: null,
       refreshToken: null,
       user: null,
@@ -37,7 +37,7 @@ export const authSlice = createSlice({
       state.refreshToken = refreshToken;
       state.user = user;
     },
-    logout: state => emptyState,
+    logout: () => emptyState,
   }
 })
 
