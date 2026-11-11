@@ -1,23 +1,19 @@
-import { BrowserRouter, Navigate, Outlet, Route, Routes, useLocation } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
 import { MainLayout } from "./components/MainLayout";
 import { LoginPage } from "./pages/LoginPage";
 import { RecipesPage } from "./pages/RecipesPage";
 import {RecipePage} from "./pages/RecipePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
-import { useAuth } from "./hooks/useAuth";
-
-const ProtectedRoutes = () => {
-  const { isAuth } = useAuth();
-  const location = useLocation();
-
-  return isAuth ? <Outlet /> : <Navigate to="/login" state={{ from: location.pathname }} replace />;
-};
+import { ProtectedRoutes } from "@/components/auth/ProtectedRoutes";
+import { PublicRoutes } from "@/components/auth/PublicRoutes";
 
 function App() {
   return (
      <BrowserRouter>
           <Routes>
-            <Route path="/login" element={<LoginPage />} />
+            <Route element={<PublicRoutes />}>
+              <Route path="/login" element={<LoginPage />} />
+            </Route>
             <Route element={<MainLayout />}>
               <Route element={<ProtectedRoutes />}>
                 <Route path="/" element={<RecipesPage />} />

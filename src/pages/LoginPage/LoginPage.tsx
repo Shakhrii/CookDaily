@@ -20,7 +20,6 @@ export default function LoginPage() {
     try {
       const data = await login({ username, password }).unwrap();
       dispatch(setCredentials(data));
-      navigate('/', {replace: true});
       } catch {}
   }
   
