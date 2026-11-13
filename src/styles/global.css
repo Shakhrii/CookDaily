@@ -8,8 +8,10 @@
 
 :root {
   --color-accent: #D93A1B;
+  --color-accent-hover: #eb5739;
   --color-ink: #14141A;
   --color-muted: #5B5B63;
+  --color-text-grey: #5B5B63;
   --color-line: #E8E8E3;
   --color-border: #D4D4CC;
   --color-error: #B3261E;
