@@ -1,3 +1,5 @@
+import { RecipesList } from "@/components/RecipesList";
+
 export default function RecipesPage() {
-  return <div>RecipesPage</div>
+  return <RecipesList/>
 }
