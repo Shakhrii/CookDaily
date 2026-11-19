@@ -12,6 +12,7 @@
   --color-ink: #14141A;
   --color-muted: #5B5B63;
   --color-text-grey: #5B5B63;
+  --color-text-light-grey: #8c8c98;
   --color-line: #E8E8E3;
   --color-border: #D4D4CC;
   --color-error: #B3261E;
@@ -53,7 +54,11 @@ img {
 button,
 input,
 select,
-textarea {
+textarea,
+h1,
+h2,
+span,
+p {
   font: inherit;
   color: inherit;
 }
