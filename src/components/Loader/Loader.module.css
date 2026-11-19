@@ -1,34 +1,60 @@
-.loader {
-  width: 48px;
-  height: 48px;
-  display: inline-block;
-  position: relative;
-}
-.loader::after,
-.loader::before {
-  content: '';
-  width: 48px;
-  height: 48px;
-  border: 2px solid #FFF;
-  position: absolute;
-  left: 0;
-  top: 0;
-  box-sizing: border-box;
-  animation: rotation 2s ease-in-out infinite;
-}
-.loader::after {
-  border-color: #FF3D00;
-  animation-delay: 1s;
-}
-
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.4);
+  background: transparent;  
   z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.loader {
+  --color-1: #fff;
+  --color-2: #D93A1B;
+  --size: 1.1px;
+
+  width: calc(48 * var(--size));
+  height: calc(48 * var(--size));
+  border-radius: 50%;
+  position: relative;
+  animation: rotate 1s linear infinite;
+}
+.loader::before,
+.loader::after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: calc(5 * var(--size)) solid var(--color-1);
+  animation: prixClipFix 2s linear infinite;
+}
+.loader::after {
+  inset: calc(8 * var(--size));
+  transform: rotate3d(90, 90, 0, 180deg);
+  border-color: var(--color-2);
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  75%,
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
 }
 
 .smallLoader {
@@ -41,12 +67,3 @@
   box-sizing: border-box;
   animation: rotation 2s linear infinite;
 }
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} 

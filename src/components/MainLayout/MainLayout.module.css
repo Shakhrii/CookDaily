@@ -1,5 +1,7 @@
 .mainLayout {
   height: 100dvh;
+  width: 100vw;
+  background-color: var(--color-surface);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
