@@ -5,7 +5,7 @@ import { Loader } from "../Loader";
 
 export default function RecipesList() {
   const { data, isLoading, isError } = useGetRecipesQuery({
-    limit: 15,
+    limit: 6,
     skip: 0,
   });
 
