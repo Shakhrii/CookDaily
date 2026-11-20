@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router";
 import { MainLayout } from "./components/MainLayout";
 import { LoginPage } from "./pages/LoginPage";
 import { RecipesPage } from "./pages/RecipesPage";
@@ -16,7 +16,7 @@ function App() {
             </Route>
             <Route element={<MainLayout />}>
               <Route element={<ProtectedRoutes />}>
-                <Route path="/" element={<RecipesPage />} />
+                <Route path="/" element={ <Navigate to="/recipes" replace /> }/>
                 <Route path="/recipes" element={<RecipesPage />} />
                 <Route path="/recipe/:id" element={<RecipePage />} />
               </Route>
